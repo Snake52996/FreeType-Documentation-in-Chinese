@@ -23,6 +23,6 @@
 
 每个字形图像和若干个用于描述在渲染文本时如何定位和安排它的指标(metrics)相关联; 请在[第三部分](glyphs-3.md)中查找更多信息. 指标和字形布局, 指针前进以及文本布局有关. 它们对于在渲染一串文本时计算文本流异常重要.
 
-Each scalable format also contains some global metrics,            expressed in notional (i.e. font) units, to describe some            properties of all glyphs in the same face.  Examples for            global metrics are the maximum glyph bounding box, the            ascender, descender, and text height of the font.
+每一个可缩放的格式也同时包含一些全局的指标, 以概念(即字体)单位表示, 用以描述在同一字体外观中的全部字形的一些特性, 例如字体的最大字形边框, 上行和下行笔划以及文本高度等等.
 
-Non-scalable formats contain metrics also.  However, they            only apply to a set of given character dimensions and            resolutions, and are usually expressed in pixels then.
+不可缩放的格式中也会包含一些指标. 然而, 它们往往只对特定的字符尺寸和分辨率有效, 在这种情况下这些指标往往以像素表示.

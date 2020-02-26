@@ -8,11 +8,13 @@
 
 3. [字符与字体指标](glyphs-1.md#3._字符与字体指标)
 
-### [II. Glyph Outlines](file:///media/snake-for-safety/数据/下载/freetype-2.10.1/docs/glyphs/glyphs-2.html)
+### [II. 字形轮廓](glyphs-2.md)
 
-- ​              [1. Pixels, points and                 device resolutions](file:///media/snake-for-safety/数据/下载/freetype-2.10.1/docs/glyphs/glyphs-2.html#section-1)            
-- ​              [2. Vectorial                 representation](file:///media/snake-for-safety/数据/下载/freetype-2.10.1/docs/glyphs/glyphs-2.html#section-2)            
-- ​              [3. Hinting and bitmap                 rendering](file:///media/snake-for-safety/数据/下载/freetype-2.10.1/docs/glyphs/glyphs-2.html#section-3)            
+1. [像素, 点与设备分辨率](glyphs-2.md#1._像素,_点与设备分辨率)
+
+2. [向量表示法](glyphs-2.md)
+
+3. [字体微调与位图渲染](glyphs-2.md)
 
 ### [III. Glyph Metrics](file:///media/snake-for-safety/数据/下载/freetype-2.10.1/docs/glyphs/glyphs-3.html)
 
