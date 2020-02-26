@@ -2,11 +2,11 @@
 
 ### [I. 数字排印基本概念](glyphs-1.md)
 
-1. [字体文件, 格式与信息](glyphs-1.md#1. 字体文件, 格式与信息)
+1. [字体文件, 格式与信息](glyphs-1.md#1._字体文件,_格式与信息)
 
-2. [字符图像与字符表](glyphs-1.md#2. 字符图像与字符表)
+2. [字符图像与字符表](glyphs-1.md#2._字符图像与字符表)
 
-3. [字符与字体指标](glyphs-1.md#3. 字符与字体指标)
+3. [字符与字体指标](glyphs-1.md#3._字符与字体指标)
 
 ### [II. Glyph Outlines](file:///media/snake-for-safety/数据/下载/freetype-2.10.1/docs/glyphs/glyphs-2.html)
 
