@@ -1,8 +1,8 @@
-## II. 字形轮廓
+### II. 字形轮廓
 
 这一节将介绍字形图像, 又被称作轮廓, 的可缩放表述法是如何被FreeType以及客户端应用所使用的.
 
-### 1. 像素, 点与设备分辨率
+#### 1. 像素, 点与设备分辨率
 
 在计算机图像程序的领域中, 一个给定的像素（无论是对于屏幕上还是对于打印机来说）的物理尺寸并不是一个精确的正方形是一个基本的假设. 通常, 输出设备在水平和垂直方向上均会表现出不同的分辨率, 因此必须在渲染文本的时候注意处理.
 
@@ -18,7 +18,7 @@ The resolution is expressed in *dpi*.  Since            horizontal and vertical 
 
 *Unlike what is often thought, the ‘size of text              in pixels’ is not directly related to the real              dimensions of characters when they are displayed or              printed.  The relationship between these two concepts is              a bit more complex and depends on some design choices              made by the font designer.  This is described in more              detail in the next sub-section (see the explanations on              the EM square).*
 
-### 2. Vectorial representation
+#### 2. Vectorial representation
 
 The source format of outlines is a collection of closed paths called            *contours*.  Each contour delimits an outer or            inner *region* of the glyph, and can be made of            either *line segments* or *Bézier            arcs*.
 
