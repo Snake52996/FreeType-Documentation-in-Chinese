@@ -8,15 +8,15 @@
 
 所以普遍用以两个数来表示的*dpi*（每英寸中的点数）来定义设备的这种特征. 例如一个解析度为300×600dpi的打印机在水平方向上每英寸有300个像素点, 而在垂直方向上每英寸的像素点则有600个. 一个典型的计算机显示器根据其尺寸而有所不同（例如同有1024×768个像素点的10英寸和25英寸的显示器显然并不具有同样的像素尺寸）, 同时也显然与图像显示模式的分辨率有关.
 
-As a consequence, the size of text is usually given in            *points*, rather than device-specific pixels.            Points are a *physical* unit, where 1 point            equals 1/72th of an inch in digital typography.  As an            example, most books using the Latin script are printed            with a body text size somewhere between 10 and            14 points.
+因此, 文本的大小一般是通过*点*给定的, 而不是依具体设备有所不同的像素. 点是一个物理单位, 在数字排印中一点等于七十二分之一英寸. 例如绝大多数使用拉丁字母的书籍在印刷时使用的主体部分文本大小在10至14点之间.
 
-It is thus possible to compute the size of text in pixels            from the size in points with the following formula:
+由于存在这种关系, 我们可以利用如下的公式来从以点为单位的文本大小计算得出以像素为单位的文本大小:
+$$
+\text{像素大小}=\frac{\text{点数大小}\times\text{解析度}}{72}
+$$
+其中的解析度是通过*dpi*表述的. 由于水平与垂直的解析度可能有所不同, 由一个点数定义大小的文本通常并不具有相同的像素宽度和高度.
 
-​            `pixel_size = point_size * resolution / 72`          
-
-The resolution is expressed in *dpi*.  Since            horizontal and vertical resolutions may differ, a single            point size usually defines a different text width and            height in pixels.
-
-*Unlike what is often thought, the ‘size of text              in pixels’ is not directly related to the real              dimensions of characters when they are displayed or              printed.  The relationship between these two concepts is              a bit more complex and depends on some design choices              made by the font designer.  This is described in more              detail in the next sub-section (see the explanations on              the EM square).*
+*并不符合直觉的, 文本的像素大小和字符被显示或打印时的实际尺寸之间并不具有直接的关系. 这两个概念之间的关系要更加复杂一点, 而且取决于字体设计者在设计时的一些选择.  关于这一点, 在下个小节中会进行更细致的介绍(参见对[TODO]的解释)This is described in more detail in the next sub-section (see the explanations on the EM square).*
 
 #### 2. Vectorial representation
 
