@@ -4,7 +4,7 @@
 这份文档对于使用本库的任何用户是*必读的*.
 ## [FreeType常见问题](docs/ft2faq.md)
 ## [FreeType教程](docs/tutorial/index.md)
-## [FreeType API参考手册](docs/reference/index.md)
+## [FreeType API参考手册](docs/reference/index.html)
 ## [FreeType的设计](docs/design/index.md)
 ## [On Slight Hinting, Proper Text Rendering, Stem Darkening and LCD Filters](docs/text-rendering-general.md)
 最初写于发布版v2.6.2, 包含关于文字渲染的若干背景知识. 对获得更好的整体上的理解有帮助.

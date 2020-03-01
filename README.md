@@ -3,7 +3,7 @@
 
 [查看中文版本](#中文版本)
 
-This is supposed to be a Chinese translation of the documentation of FreeType.
+This is supposed to be a Chinese translation of the documentation of FreeType.(**unofficial**)
 
 The official site of FreeType can be accessed through this link: [https://www.freetype.org](https://www.freetype.org/).
 
@@ -13,13 +13,13 @@ This translation is based on the official documentation of FreeType, which can b
 
 We use [MDwiki](https://dynalon.github.io/mdwiki/#!index.md) to present documentation as web pages. More details can be reached from its official web site.
 
-[You can step to documentations here.]()
+[You can step to documentations here.](https://snake.moe/FreeType-Documentation-in-Chinese)
 
 ## 中文版本
 
 [View English version](#english-version)
 
-这应当是一份FreeType文档的中文翻译.
+这应当是一份FreeType文档的中文翻译（**非官方**）.
 
 FreeType的官方网站可以通过该链接访问: https://www.freetype.org](https://www.freetype.org/).
 
@@ -29,4 +29,4 @@ FreeType的官方网站可以通过该链接访问: https://www.freetype.org](ht
 
 我们使用[MDwiki](https://dynalon.github.io/mdwiki/#!index.md)来将文档展现为网页. 请访问其官网来查看关于MDwiki的更多内容.
 
-[你可以在这里前往查看文档.]()
+[你可以在这里前往查看文档.](https://snake.moe/FreeType-Documentation-in-Chinese)
