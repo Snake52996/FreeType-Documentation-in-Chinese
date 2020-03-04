@@ -22,3 +22,4 @@
 | EM unit(s) | EM单位 |
 | hinting | 微调 |
 | overshoot | *未译* |
+| grid-fitting | 网格拟合 |

@@ -54,21 +54,21 @@
 
 因此, 进行准确的字形渲染需要将缩放后的点对齐到目标设备的像素网格上, 这一步操作被称为*网格拟合*(也被称为*微调*). 这步操作的主要目的之一是确保重要的宽度和高度在整个字体中被一致的遵循（例如通常上“I”和“T”的字形的中央垂直线具有相同的像素宽度是令人愉悦的）, 同时也用来处理一些特征, 例如在小像素尺寸下可能造成问题的字干与overshoot过程(译注: 即为了使得视觉上显示出相同的高度, 将圆或尖角的字母(如“O”, “A”)伸展至高于扁平的字符(如“X”, “H”))
 
-There are several ways to perform grid-fitting properly;            most scalable formats associate some control data or            programs with each glyph outline.  Here is an            overview:
+有数种进行网格拟合的方法, 绝大多数可缩放格式的字体将每个字形和一些控制数据或者程序相关联来实现. 下面来总览一下这些方法:
 
-- explicit grid-fitting
+- 显式网格拟合
 
-  The TrueType format defines a stack-based virtual                machine, for which programs (also                called *bytecode*) can be written with the help                of more than 200 operators, most of them related                to geometrical operations.  Each glyph is thus made of                both an outline and a control program to perform the                actual grid-fitting in the way defined by the font                designer.
+  TrueType格式定义了一个基于堆栈的虚拟机, 可以使用超过200种操作符为之编写程序（通常也被称为*字节码*）, 这些操作符中的大多数与几何操作有关. 每个具体的字形都是通过一个轮廓和一个按照字体设计者的设定进行实际网格拟合的控制程序生成的.
 
-- implicit grid-fitting (also called hinting)
+- 隐式网格拟合（也被称为微调）
 
-  The Type 1, CFF, and CFF2 formats take a much                simpler approach: Each glyph is made of an outline as                well as several pieces called *hints* which are                used to describe some important features of the glyph,                like the presence of stems, some width regularities,                and the like.  There aren't a lot of hint types, and                it is up to the final renderer to interpret the hints                in order to produce a fitted outline.
+  Type 1, CCF和CCF2格式选择了一种更简单的方式: 每一个字形由一个轮廓与若干个用于描述字形的重要特性, 诸如字干的形态, 一些宽度的规律之类的*微调(信息)*生成. 微调(信息)的种类并不多, 且交托于最终的渲染器来解释这些微调(信息)从而产生一个经过了拟合的轮廓.
 
 - automatic grid-fitting
 
-  Some formats include no control information with each                glyph outline, apart from font metrics like the                advance width and height.  It is then up to the                renderer to ‘guess’ the more interesting                features of the outline in order to perform some                decent grid-fitting.
+  Some formats include no control information with each glyph outline, apart from font metrics like the advance width and height.  It is then up to the renderer to ‘guess’ the more interesting features of the outline in order to perform some decent grid-fitting.
 
-The following table summarizes the pros and cons of each            scheme.
+The following table summarizes the pros and cons of each scheme.
 
 | **grid-fitting scheme** | **advantages**                                               | **disadvantages**                                            |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
