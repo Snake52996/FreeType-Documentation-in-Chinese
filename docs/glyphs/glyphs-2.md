@@ -44,7 +44,7 @@
 
 *正如之前所说, 通过上述的公式计算的`像素大小`和字符在屏幕上的大小并不直接相关. 它只是（如果显示的话）EM方格的大小. 对于任何一个字体设计者来说, 他可以自由的依照自己的意愿将字形安置在方格中. 这也就解释了为什么为什么下面的不同字体的文本们虽然显示在同样的点数大小下, 却并不具有相同的高度.*
 
-​            ![字体高度之间的比较](body_comparison.png)          
+![字体高度之间的比较](body_comparison.png)          
 
 如你所见, Courier家族的字形相比Times New Roman的要小, 同时Times New Roman的又略微比Arial的小一些, 即使它们被显示或打印的大小都是16点. 这只体现了设计中的选择.
 
@@ -64,14 +64,14 @@
 
   Type 1, CCF和CCF2格式选择了一种更简单的方式: 每一个字形由一个轮廓与若干个用于描述字形的重要特性, 诸如字干的形态, 一些宽度的规律之类的*微调(信息)*生成. 微调(信息)的种类并不多, 且交托于最终的渲染器来解释这些微调(信息)从而产生一个经过了拟合的轮廓.
 
-- automatic grid-fitting
+- 自动网格拟合
 
-  Some formats include no control information with each glyph outline, apart from font metrics like the advance width and height.  It is then up to the renderer to ‘guess’ the more interesting features of the outline in order to perform some decent grid-fitting.
+  一些格式并不包括除了单个字符最大水平、垂直光标移动距离之类的字符指标之外的任何控制信息, 由渲染器来“猜测”轮廓的更多有趣的特性从而完成像样的网格拟合.
 
-The following table summarizes the pros and cons of each scheme.
+下面的表格总结了这些方案的优缺点.
 
-| **grid-fitting scheme** | **advantages**                                               | **disadvantages**                                            |
-| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **explicit**            | **Quality.**  Excellent results at small sizes                    are possible.  This is very important for screen                    display.                   **Consistency.**  All renderers produce the                    same glyph bitmaps (at least in theory). | **Speed.**  Interpreting bytecode can be slow                    if the glyph programs are complex.                   **Size.**  Glyph programs can be long.                                  **Technical difficulty.**  It is extremely                    difficult to write good hinting programs.  Very                    few tools available. |
-| **implicit**            | **Size.**  Hints are usually much smaller than                    explicit glyph programs.                   **Speed.**  Grid-fitting is usually a fast                    process. | **Quality.**  Often questionable at small                    sizes.  Better with anti-aliasing though.                   **Inconsistency.**  Results can vary between                    different renderers, or even distinct versions of                    the same engine. |
-| **automatic**           | **Size.**  No need for control information,                    resulting in smaller font files.                                  **Speed.**  Depends on the grid-fitting                    algorithm.  Usually faster than explicit                    grid-fitting. | **Quality.**  Often questionable at small                    sizes.  Better with anti-aliasing though.                   **Speed.**  Depends on the grid-fitting                    algorithm.                          **Inconsistency.**  Results can vary between                    different renderers, or even distinct versions                    of the same engine. |
+| **网格拟合方案**  | **优势**                                               | **劣势**                                        |
+| ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **显式**  | **质量.** 可以在小尺寸下生成极佳的结果. 这对屏幕显示至关重要.<br />**一致性.** 所有渲染器（至少在理论上）将产生同样的字形位图. | **速度.** 若字形程序复杂的话, 解释其字节码可能会很慢.<br />**(文件)大小.** 字型程序可能会很长.<br />**技术难度.** 写出好的微调程序非常困难. 只有很少的可用工具. |
+| **隐式**  | **(文件)大小.** 微调(信息)通常远比显式字形程序小.<br />**速度.** 网格拟合通常很快. | **质量.** 在小尺寸下经常不可靠. 不过配合抗锯齿时会好些.<br />**一致性.** 拟合的结果可能会随使用的渲染器的不同, 甚至随同一渲染器的不同版本而不同. |
+| **自动** | **(文件)大小.** 无需添加控制信息, 使得字体文件(比前两者)更小.<br />**速度.** 取决于网格拟合算法. 通常会比显示网格拟合更快. | **质量.** 在小尺寸下经常不可靠. 不过配合抗锯齿时会好些.<br />**速度.** 取决于网格拟合算法.<br />**一致性.** 拟合的结果可能会随使用的渲染器的不同, 甚至随同一渲染器的不同版本而不同. |
