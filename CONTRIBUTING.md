@@ -23,4 +23,4 @@
 | hinting | 微调 |
 | overshoot | *未译* |
 | grid-fitting | 网格拟合 |
-| metrics | 指标 |
+| metrics | 度量 |
