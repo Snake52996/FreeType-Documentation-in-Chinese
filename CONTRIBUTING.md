@@ -17,10 +17,14 @@
 | contours | 轮廓线 |
 | Bézier arcs | 贝塞尔弧 |
 | EM square | EM方格 |
-| font unit(s) | 字体单位 |
-| grid unit(s) | 网格单位 |
-| EM unit(s) | EM单位 |
+| font/grid/EM unit(s) | 字体/网格/EM单位 |
 | hinting | 微调 |
 | overshoot | *未译* |
 | grid-fitting | 网格拟合 |
 | metrics | 度量 |
+| baseline | 基线 |
+| pens/pen position/origin | 笔/笔位置/原点 |
+| advance width/advance height | [光标/笔]移动[宽度/高度] |
+| typographic | 字体排印(学) |
+| bounding box | 定界框 |
+| ascent/descent | 上/下坡度 |

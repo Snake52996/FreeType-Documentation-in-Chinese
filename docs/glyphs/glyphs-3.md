@@ -1,54 +1,51 @@
-## III. Glyph Metrics
+### III. 字形度量
 
-### 1. Baseline, pens and layouts
+#### 1. 基线, 笔与布局
 
-The baseline is an imaginary line that is used to     ‘guide’ glyphs when rendering text.  It can be     horizontal (e.g., Latin, Cyrillic, Arabic) or vertical     (e.g., Chinese, Japanese, Mongolian).  Moreover, to render     text, a virtual point, located on the baseline, called     the *pen position* or *origin*, is used to     locate glyphs.
+基线是一条用于在渲染文本时引导字形的想象的线. 它既可以是水平方向的（如拉丁语, 西里尔文字, 阿拉伯语中）, 也可以是垂直的（如中文, 日语, 蒙古语中). 此外, 通过一个位于基线上的虚拟点定位字形, 这个虚拟的点被称为*笔位置*或*原点*
 
-Each layout uses a different convention for glyph   placement:
+不同的布局使用的字形定位约定有所不同:
 
-- With horizontal layout, glyphs simply 	‘rest’ on the baseline.  Text is rendered 	by incrementing the pen position, either to the right 	or to the left.
+- 对于水平布局, 字形直接“躺”在基线上. 通过向左或向右增加(移动)笔位置完成文本的渲染.
 
-  The distance between two successive pen positions is 	glyph-specific and is called the *advance 	width*.  Note that its value is *always* 	positive, even for right-to-left oriented scripts like 	Arabic.  This introduces some differences in the way 	text is rendered.
+  相邻的两个笔位置之间的距离取决于具体字形, 被称为*光标移动宽度(advance width)*. 值得注意的是, 这个值*总是*正值, 即使在阿拉伯文字之类的由右向左书写/阅读的文字来说也是如此. 这与文本的渲染方式有所不同.
 
-  *The pen position is always placed on the 	  baseline.*
+  *笔位置总是位于基线上.*
+  
+  ![水平布局](layout.png)       
 
-  ​		![horizontal layout](layout.png)       
+- 对于垂直布局, 字形以基线为中心排布:
 
-- With a vertical layout, glyphs are centered around 	the baseline:
+  ![vertical layout](layout2.png)              
 
-  ​		![vertical layout](layout2.png)              
+#### 2. 字体排印度量与定界框
 
-### 2. Typographic metrics and bounding     boxes
+一个字体会为其中的所有字形定义一定数量的外观度量.
 
-A various number of face metrics are defined for all     glyphs in a given font.
+- 上坡度(ascent)
 
-- Ascent
+  从基线到用来放置轮廓点的最高网格坐标的距离. 由于网格坐标系的Y轴以向上为正方向, 这会是一个正值.
 
-  The distance from the baseline to the highest or 	upper grid coordinate used to place an outline point. 	It is a positive value, due to the grid's orientation 	with the *Y* axis upwards.
+- 下坡度(descent)
 
-- Descent
+  从基线到用来放置轮廓点的最低网格坐标的距离. 由于网格坐标系的方向, 在FreeType中该值被定义为负值. 但应该注意在某些字体格式中这个值仍然是正值.
 
-  The distance from the baseline to the lowest grid 	coordinate used to place an outline point.  In 	FreeType, this is a negative value, due to the grid's 	orientation.  Note that in some font formats this is a 	positive value.
+- 行距(linegap)
 
-- Linegap
+  相邻两行文本之间的最小距离. 使用字体排印相关的数值, 基线与基线之间的距离可以通过`基线间距离 = 上坡度 - 下坡度 + 行距`.
 
-  The distance that must be placed between two lines of 	text.  The baseline-to-baseline distance should be 	computed as 	      
 
-  ​		`linespace = ascent - descent + linegap`       
+除此之外, 还有这些简单些的度量:
 
-  if you use the typographic values.
+- 定界框(bounding box)
 
-Other, simpler metrics are:
+  定界框是一个能包围字体中的字形的假想边框, 且通常特指这样的边框中尽可能紧密的一个. 定界框由可以针对任何轮廓计算的四个参数, `xMin`, `yMin`, `xMax`, `yMax`表示. 若依据原始轮廓测量, 则它们的值可以以字体单位为单位; 若是在经过缩放的轮廓上, 也可以以整数（或分数）像素为单位.
 
-- Bounding box
-
-  This is an imaginary box that encloses all glyphs 	from the font, usually as tightly as possible.  It is 	represented by four parameters, 	namely `xMin`, `yMin`,                `xMax`, and `yMax`, that can be 	computed for any outline.  Their values can be in font 	units if measured in the original outline, or in 	integer (or fractional) pixel units when measured on 	scaled outlines.
-
-  A common shorthand for the bounding box is 	‘bbox’.
+  通常也将定界框简称为“bbox”.
 
 - Internal leading
 
-  This concept comes directly from the world of traditional 	typography.  It represents the amount of space within the 	*leading* which is reserved for glyph features 	that lay outside of the EM square (like accentuation). 	It usually can be computed as
+  这个概念直接从传统的字体排印而来. It represents the amount of space within the *leading* which is reserved for glyph features that lay outside of the EM square (like accentuation). 	It usually can be computed as
 
   ​		`internal leading = ascent - descent - EM_size`              
 
@@ -56,7 +53,7 @@ Other, simpler metrics are:
 
   This is another name for the line gap.
 
-### 3. Bearings and Advances
+#### 3. Bearings and Advances
 
 Each glyph has also distances called *bearings* and     *advances*.  The actual values depend on the     layout, as the same glyph can be used to render text     either horizontally or vertically:
 
@@ -116,7 +113,7 @@ And here is another one for the vertical metrics:
 
 ​	    ![vertical glyph metrics](metrics2.png)   
 
-### 4. The effects of grid-fitting
+#### 4. The effects of grid-fitting
 
 Because hinting aligns the glyph's control points to the     pixel grid, this process slightly modifies the dimensions     of character images in ways that differ from simple     scaling.
 
@@ -138,7 +135,7 @@ Performing 2D transformations on glyph outlines is very     easy with FreeType. 
 
 Note, however, that the restriction to integer pixel            distances mentioned in the previous paragraph has become            weaker; today, it is quite common to do *no*            hinting along the horizontal axis, only adjusting the            glyphs vertically.  Typical examples are Microsoft's            ClearType implementation, FreeType's new CFF engine            (contributed by Adobe), or the ‘light’            auto-hinting mode.  For such modes you get best rendering            results if you do sub-pixel glyph positioning.
 
-### 5. Text widths and bounding box
+#### 5. Text widths and bounding box
 
 As seen before, the ‘origin’ of a given glyph     corresponds to the position of the pen on the baseline.     It is not necessarily located on one of the glyph's     bounding box corners, unlike many typical bitmapped font     formats.  In some cases, the origin can be out of the     bounding box, in others, it can be within it, depending on     the shape of the given glyph.
 
@@ -148,4 +145,4 @@ The same conventions apply to strings of text, with the   following consequences
 
 - The bounding box of a given string of text doesn't 	necessarily contain the text cursor, nor is the latter 	located on one of its corners.
 - The string's advance width isn't related to its 	bounding box dimensions.  Especially if it contains 	leading and trailing spaces or tabs.
-- Finally, additional processing like kerning creates 	strings of text whose dimensions are not directly 	related to the simple juxtaposition of individual 	glyph metrics.  For example, the advance width of 	‘VA’ isn't the sum of the advances of 	‘V’ and ‘A’ taken 	separately.
+- Finally, additional processing like kerning creates 	strings of text whose dimensions are not directly related to the simple juxtaposition of individual glyph metrics.  For example, the advance width of ‘VA’ isn't the sum of the advances of ‘V’ and ‘A’ taken separately.
